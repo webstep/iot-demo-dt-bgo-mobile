@@ -1,9 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'npm install'
+    }
+    
+  }
   stages {
     stage('npm install') {
       steps {
-        sh '/usr/local/bin/npm install'
+        sh 'npm install'
       }
     }
     stage('ng build') {
